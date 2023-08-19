@@ -17,9 +17,19 @@ public class Validasi {
     @FindBy(xpath = "//span[@class='title']")
     WebElement Dashboard;
 
+    @FindBy(xpath = "//div[@class='inventory_item_name']")
+    WebElement titlecart;
+
     @FindBy(xpath = "//h2[@class='complete-header']")
     WebElement completed;
 
+    public void validasiShop(String expected){
+        String result = validasiin(getshop(),expected);
+        System.out.println(result);
+    }
+    public String getshop(){
+        return titlecart.getText();
+    }
     public void validasiCheckout(String expected){
         String result = validasiin(getfinish(),expected);
         System.out.println(result);

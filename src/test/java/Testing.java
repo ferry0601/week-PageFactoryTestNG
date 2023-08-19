@@ -1,6 +1,7 @@
 import com.juaracoding.drivers.DriverSingleton;
 import com.juaracoding.pages.Checkout;
 import com.juaracoding.pages.PageLogin;
+import com.juaracoding.pages.Shopping;
 import com.juaracoding.pages.Validasi;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -13,6 +14,7 @@ public class Testing {
     Validasi validasi;
     PageLogin pageLogin;
     Checkout checkout;
+    Shopping shopping;
 
     @BeforeClass
     public void setUp(){
@@ -22,6 +24,7 @@ public class Testing {
         validasi = new Validasi();
         checkout = new Checkout();
         pageLogin = new PageLogin();
+        shopping = new Shopping();
     }
 
     @AfterClass
@@ -30,13 +33,19 @@ public class Testing {
         DriverSingleton.closeObjectInstance();
     }
 
-    @Test
+    @Test(priority = 1)
     public void validasiLogin(){
         pageLogin.login("standard_user","secret_sauce");
         Assert.assertEquals(validasi.getDashboard(),"Products");
     }
 
-    @Test
+    @Test(priority = 2)
+    public void validasiShopping(){
+        shopping.shop();
+        Assert.assertEquals(validasi.getshop(),"Sauce Labs Backpack");
+    }
+
+    @Test(priority = 3)
     public void validasiCheckout(){
         checkout.fillForm("Wahyu","Ferryansyah","23254");
         Assert.assertEquals(validasi.getfinish(),"Thank you for your order!");

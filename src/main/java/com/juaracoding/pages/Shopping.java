@@ -19,17 +19,20 @@ public class Shopping {
     @FindBy(xpath = "//button[@id='add-to-cart-sauce-labs-bolt-t-shirt']")
     WebElement addblacktShirt;
 
+
+
     @FindBy(xpath = "//a[@class='shopping_cart_link']")
     WebElement cart;
 
-    @FindBy(xpath = "//button[@id='checkout']")
-    WebElement btnCheckout;
+
 
     public void shop(){
         addBackpack.click();
         addblacktShirt.click();
         cart.click();
         DriverSingleton.delay(3);
-        btnCheckout.click();
+
     }
+
+
 }

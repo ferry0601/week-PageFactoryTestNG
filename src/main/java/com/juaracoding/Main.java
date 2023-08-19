@@ -26,6 +26,7 @@ public class Main {
         //shopping
         Shopping shopping = new Shopping();
         shopping.shop();
+        validasi.validasiShop("Sauce Labs Backpack");
 
         //checkout
         Checkout checkout = new Checkout();

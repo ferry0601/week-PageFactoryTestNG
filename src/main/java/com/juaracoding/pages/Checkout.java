@@ -26,10 +26,14 @@ public class Checkout {
     @FindBy(xpath = "//input[@id='continue']")
     WebElement btnContinue;
 
+    @FindBy(xpath = "//button[@id='checkout']")
+    WebElement btnCheckout;
+
     @FindBy(xpath = "//button[@id='finish']")
     WebElement btnfinish;
 
     public void fillForm(String firstname, String lastname, String zipcode){
+        btnCheckout.click();
         formFirstname.sendKeys(firstname);
         formLastName.sendKeys(lastname);
         formZipcode.sendKeys(zipcode);
